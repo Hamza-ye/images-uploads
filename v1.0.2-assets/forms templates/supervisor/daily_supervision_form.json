@@ -1,0 +1,276 @@
+{
+        "uid": "pBLU5LcKCVF",
+        "code": "DAILY_ITNs_TRACKING_SUPERVISOR",
+        "name": "مراجعة ومطابقة الكميات المصروفة من الناموسيات",
+        "description": "Form for tracking daily activities of team supervisors during campaigns.",
+        "disabled": false,
+        "deleted": false,
+        "version": 15,
+        "defaultLocal": "ar",
+        "fields": [
+            {
+                "name": "mainSection",
+                "type": "Section",
+                "description": "Main details of the supervisor.",
+                "label": {
+                    "en": "Main Details",
+                    "ar": "تفاصيل أساسية"
+                },
+                "rules": [],
+                "path": "mainSection",
+                "order": 0,
+                "mandatory": true,
+                "readOnly": false,
+                "mainField": false,
+                "fields": [
+                    {
+                        "name": "workDay",
+                        "type": "SelectOne",
+                        "description": "Day of work for the campaign.",
+                        "label": {
+                            "en": "Work Day",
+                            "ar": "يوم العمل"
+                        },
+                        "rules": [],
+                        "path": "mainSection.workDay",
+                        "order": 1,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true,
+                        "listName": "workDays"
+                    }
+                ]
+            },
+            {
+                "name": "dataReview",
+                "type": "RepeatableSection",
+                "description": "Data Review",
+                "label": {
+                    "en": "Data Review",
+                    "ar": "بيانات المراجعة"
+                },
+                "rules": [],
+                "path": "dataReview",
+                "order": 2,
+                "mandatory": true,
+                "readOnly": false,
+                "mainField": false,
+                "fields": [
+                    {
+                        "name": "teamNumber",
+                        "type": "Team",
+                        "label": {
+                            "en": "Team Number",
+                            "ar": "الفريق"
+                        },
+                        "rules": [],
+                        "path": "dataReview.teamNumber",
+                        "order": 3,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false
+                    },
+                    {
+                        "name": "itns_dispensed",
+                        "type": "IntegerZeroOrPositive",
+                        "description": null,
+                        "label": {
+                            "en": "Nets Issued",
+                            "ar": "الناموسيات المصروفة"
+                        },
+                        "rules": [],
+                        "path": "dataReview.netsIssued",
+                        "calculation": null,
+                        "order": 4,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "constraintMessage": null,
+                        "mainField": true
+                    },
+                    {
+                        "name": "itns_distributed",
+                        "type": "IntegerZeroOrPositive",
+                        "description": null,
+                        "label": {
+                            "en": "Nets Distributed",
+                            "ar": "الناموسيات الموزعة"
+                        },
+                        "rules": [],
+                        "path": "dataReview.itns",
+                        "calculation": null,
+                        "order": 5,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": true
+                    },
+                    {
+                        "name": "itns_remainingRecords",
+                        "type": "IntegerZeroOrPositive",
+                        "label": {
+                            "en": "Nets Remaining (Records)",
+                            "ar": "متبقي حسب السجلات"
+                        },
+                        "rules": [],
+                        "order": 6,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true
+                    },
+                    {
+                        "name": "itns_remainingActual",
+                        "type": "IntegerZeroOrPositive",
+                        "label": {
+                            "en": "Nets Remaining (Actual)",
+                            "ar": "متبقي حسب الجرد"
+                        },
+                        "rules": [],
+                        "path": "dataReview.netsRemainingActual",
+                        "order": 7,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true
+                    },
+                    {
+                        "name": "itns_differences",
+                        "type": "IntegerZeroOrPositive",
+                        "label": {
+                            "en": "Nets Differences (Actual)",
+                            "ar": "الفارق"
+                        },
+                        "rules": [],
+                        "path": "dataReview.netsDifferences",
+                        "order": 8,
+                        "mandatory": false,
+                        "readOnly": false,
+                        "mainField": true
+                    },
+                    {
+                        "name": "recordsCleanliness",
+                        "type": "SelectOne",
+                        "label": {
+                            "en": "Data Cleanliness",
+                            "ar": "نظافة واكتمال البيانات"
+                        },
+                        "rules": [],
+                        "path": "dataReview.recordsCleanliness",
+                        "order": 9,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false,
+                        "listName": "yesno"
+                    },
+                    {
+                        "name": "instructionsCompliance",
+                        "type": "SelectOne",
+                        "label": {
+                            "en": "Compliance with Instructions",
+                            "ar": "الالتزام بالتعليمات"
+                        },
+                        "rules": [],
+                        "path": "dataReview.instructionsCompliance",
+                        "order": 10,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false,
+                        "listName": "yesno"
+                    }
+                ],
+                "itemTitle": null,
+                "maxRepeats": 0,
+                "minRepeats": 0
+            }
+        ],
+        "options": [
+            {
+                "listName": "workDays",
+                "name": "1",
+                "order": 0,
+                "label": {
+                    "en": "Day 1",
+                    "ar": "الأول"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workDays",
+                "name": "2",
+                "order": 1,
+                "label": {
+                    "en": "Day 2",
+                    "ar": "الثاني"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workDays",
+                "name": "3",
+                "order": 2,
+                "label": {
+                    "en": "Day 3",
+                    "ar": "الثالث"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workDays",
+                "name": "4",
+                "order": 3,
+                "label": {
+                    "en": "Day 4",
+                    "ar": "الرابع"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workDays",
+                "name": "5",
+                "order": 4,
+                "label": {
+                    "en": "Day 5",
+                    "ar": "الخامس"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workDays",
+                "name": "6",
+                "order": 5,
+                "label": {
+                    "en": "Day 6",
+                    "ar": "السادس"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "yesno",
+                "name": "yes",
+                "order": 0,
+                "label": {
+                    "en": "Yes",
+                    "ar": "نعم"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "yesno",
+                "name": "no",
+                "order": 1,
+                "label": {
+                    "en": "No",
+                    "ar": "لا"
+                },
+                "properties": {}
+            }
+        ],
+        "optionSets": [],
+        "orgUnits": [],
+        "label": {
+            "en": "Daily Teams' ITNs Tracking - Supervisor",
+            "ar": "مراجعة ومطابقة الكميات المصروفة من الناموسيات"
+        }
+    }

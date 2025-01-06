@@ -1,0 +1,911 @@
+ {       
+        "uid": "RtnmK39VXTY",
+        "code": "FIELD_SUPERVISION_FORM",
+        "name": "استمارة الاشراف الميداني - مشرف المخزن",
+        "description": "استمارة لمتابعة إشراف مشرفي المخزن خلال الحملة.",
+        "disabled": false,
+        "deleted": false,
+        "version": 10,
+        "defaultLocal": "ar",
+        "fields": [
+            {
+                "name": "Section",
+                "type": "Section",
+                "label": {
+                    "en": "Main Section",
+                    "ar": "البيانات الاساسية"
+                },
+                "rules": [],
+                "path": "Section",
+                "order": 0,
+                "mandatory": true,
+                "readOnly": false,
+                "mainField": false,
+                "fields": [
+                    {
+                        "name": "visitedTeam",
+                        "type": "Team",
+                        "label": {
+                            "en": "Team Number",
+                            "ar": "الفريق"
+                        },
+                        "rules": [],
+                        "order": 1,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true
+                    },
+                    {
+                        "name": "workday",
+                        "type": "SelectOne",
+                        "label": {
+                            "en": "Visit day",
+                            "ar": "يوم الزيارة"
+                        },
+                        "rules": [],
+                        "order": 2,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true,
+                        "listName": "workdays"
+                    },
+                    
+                    {
+                        "name": "visitDate",
+                        "type": "Date",
+                        "description": "تاريخ الزيارة.",
+                        "label": {
+                            "en": "Visit Date",
+                            "ar": "تاريخ الزيارة"
+                        },
+                        "rules": [],
+                        "order": 3,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true
+                    }
+                ]
+            },
+            {
+                "name": "householdData",
+                "type": "Section",
+                "description": "بيانات المنزل التي يتم إشرافها.",
+                "label": {
+                    "en": "Household Data",
+                    "ar": "بيانات المنازل التي تم زيارتها"
+                },
+                "rules": [],
+                "path": "householdData",
+                "order": 4,
+                "mandatory": true,
+                "readOnly": false,
+                "mainField": false,
+                "fields": [
+                    {
+                        "name": "houseInfo_1",
+                        "type": "Section",
+                        "description": "House One Data",
+                        "label": {
+                            "en": "House One",
+                            "ar": "(المنزل الاول)"
+                        },
+                        "rules": [],
+                        "path": "householdData.houseOne",
+                        "order": 5,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false,
+                        "fields": [
+                            {
+                                "name": "householdNumber_houseOne",
+                                "type": "IntegerPositive",
+                                "description": "رقم المنزل أو رقم الكرت.",
+                                "label": {
+                                    "en": "Household Number",
+                                    "ar": "رقم المنزل (على جدار المنزل)"
+                                },
+                                "rules": [],
+                                "path": "householdData.houseOne.householdNumber",
+                                "calculation": null,
+                                "order": 6,
+                                "defaultValue": null,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "appearance": null,
+                                "constraint": null,
+                                "constraintMessage": null,
+                                "mainField": false
+                            },
+                            {
+                                "name": "houseHoldName_houseOne",
+                                "type": "Text",
+                                "description": "اسم صاحب المنزل.",
+                                "label": {
+                                    "en": "Household Name",
+                                    "ar": "اسم صاحب المنزل"
+                                },
+                                "rules": [],
+                                "path": "householdData.houseOne.houseHoldName",
+                                "calculation": null,
+                                "order": 7,
+                                "defaultValue": null,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "appearance": null,
+                                "constraint": null,
+                                "constraintMessage": null,
+                                "mainField": true
+                            },
+                            {
+                                "name": "visitedHousesInfo_houseOne",
+                                "type": "Section",
+                                "label": {
+                                    "en": "Visit Data",
+                                    "ar": "البيانات بحسب الزيارة"
+                                },
+                                "rules": [],
+                                "path": "householdData.houseOne.visitData",
+                                "order": 8,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "mainField": false,
+                                "fields": [
+                                    {
+                                        "name": "population_actual_1",
+                                        "type": "IntegerPositive",
+                                        "description": "إجمالي عدد السكان في المنزل.",
+                                        "label": {
+                                            "en": "House Population",
+                                            "ar": "عدد السكان في المنزل"
+                                        },
+                                        "rules": [],
+                                        "order": 9,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "mainField": true
+                                    },
+                                    {
+                                        "name": "itns_actual_1",
+                                        "type": "IntegerPositive",
+                                        "label": {
+                                            "en": "Nets Received",
+                                            "ar": "عدد الناموسيات المستلمة"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseOne.visitData.itns",
+                                        "order": 10,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "mainField": true
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "dataByTeamRecord_houseOne",
+                                "type": "Section",
+                                "label": {
+                                    "en": "Data by team record",
+                                    "ar": "البيانات حسب سجل الفريق"
+                                },
+                                "rules": [],
+                                "order": 11,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "mainField": false,
+                                "fields": [
+                                    {
+                                        "name": "population_team_1",
+                                        "type": "IntegerPositive",
+                                        "description": "إجمالي عدد السكان في المنزل.",
+                                        "label": {
+                                            "en": "House Population",
+                                            "ar": "عدد السكان حسب الفريق"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseOne.dataByTeamRecord.population",
+                                        "calculation": null,
+                                        "order": 12,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    },
+                                    {
+                                        "name": "itns_team_1",
+                                        "type": "IntegerPositive",
+                                        "description": "عدد الناموسيات الموزعة للمنزل.",
+                                        "label": {
+                                            "en": "Nets Distributed",
+                                            "ar": "الناموسيات حسب سجل الفريق"
+                                        },
+                                        "rules": [],
+                                        "order": 13,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "mainField": true
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "houseInfo_2",
+                        "type": "Section",
+                        "description": "بيانات المنزل التي يتم إشرافها.",
+                        "label": {
+                            "en": "Household Two",
+                            "ar": "المنزل الثاني"
+                        },
+                        "rules": [],
+                        "order": 12,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false,
+                        "fields": [
+                            {
+                                "name": "householdNumber_houseTwo",
+                                "type": "IntegerPositive",
+                                "description": "رقم المنزل أو رقم الكرت.",
+                                "label": {
+                                    "en": "Household Number",
+                                    "ar": "رقم المنزل (على جدار المنزل)"
+                                },
+                                "rules": [],
+                                "path": "householdData.houseTwo.householdNumber",
+                                "calculation": null,
+                                "order": 0,
+                                "defaultValue": null,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "appearance": null,
+                                "constraint": null,
+                                "constraintMessage": null,
+                                "mainField": false
+                            },
+                            {
+                                "name": "houseHoldName_houseTwo",
+                                "type": "Text",
+                                "description": "اسم صاحب المنزل.",
+                                "label": {
+                                    "en": "Household Name",
+                                    "ar": "اسم صاحب المنزل"
+                                },
+                                "rules": [],
+                                "calculation": null,
+                                "order": 1,
+                                "defaultValue": null,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "appearance": null,
+                                "constraint": null,
+                                "constraintMessage": null,
+                                "mainField": false
+                            },
+                            {
+                                "name": "visitedHousesInfo_houseTwo",
+                                "type": "Section",
+                                "label": {
+                                    "en": "Visit Data",
+                                    "ar": "البيانات بحسب الزيارة"
+                                },
+                                "rules": [],
+                                "order": 2,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "mainField": false,
+                                "fields": [
+                                    {
+                                        "name": "population_actual_2",
+                                        "type": "IntegerPositive",
+                                        "description": "إجمالي عدد السكان في المنزل.",
+                                        "label": {
+                                            "en": "House Population",
+                                            "ar": "السكان"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseTwo.visitData.population",
+                                        "calculation": null,
+                                        "order": 0,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    },
+                                    {
+                                        "name": "itns_actual_2",
+                                        "type": "IntegerPositive",
+                                        "description": "عدد الناموسيات المستلمة من قبل المنزل.",
+                                        "label": {
+                                            "en": "Nets Received",
+                                            "ar": "الناموسيات"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseTwo.visitData.netsReceived",
+                                        "calculation": null,
+                                        "order": 1,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "dataByTeamRecord_houseTwo",
+                                "type": "Section",
+                                "description": "رقم المنزل أو رقم الكرت.",
+                                "label": {
+                                    "en": "Data by team record",
+                                    "ar": "البيانات بحسب سجلات الفريق"
+                                },
+                                "rules": [],
+                                "path": "householdData.houseTwo.dataByTeamRecord",
+                                "calculation": null,
+                                "order": 3,
+                                "defaultValue": null,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "appearance": null,
+                                "constraint": null,
+                                "constraintMessage": null,
+                                "mainField": false,
+                                "fields": [
+                                    {
+                                        "name": "population_team_2",
+                                        "type": "IntegerPositive",
+                                        "description": "إجمالي عدد السكان في المنزل.",
+                                        "label": {
+                                            "en": "House Population",
+                                            "ar": "السكان"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseTwo.dataByTeamRecord.population",
+                                        "calculation": null,
+                                        "order": 0,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    },
+                                    {
+                                        "name": "itns_team_2",
+                                        "type": "IntegerPositive",
+                                        "description": "عدد الناموسيات الموزعة للمنزل.",
+                                        "label": {
+                                            "en": "Nets Distributed",
+                                            "ar": "الناموسيات"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseTwo.dataByTeamRecord.itns",
+                                        "calculation": null,
+                                        "order": 1,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "houseInfo_3",
+                        "type": "Section",
+                        "description": "بيانات المنزل التي يتم إشرافها.",
+                        "label": {
+                            "en": "Household Three",
+                            "ar": "المنزل الثالث"
+                        },
+                        "rules": [],
+                        "order": 14,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false,
+                        "fields": [
+                            {
+                                "name": "householdNumber_houseThree",
+                                "type": "IntegerPositive",
+                                "description": "رقم المنزل أو رقم الكرت.",
+                                "label": {
+                                    "en": "Household Number",
+                                    "ar": "رقم المنزل (على جدار المنزل)"
+                                },
+                                "rules": [],
+                                "order": 15,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "mainField": false
+                            },
+                            {
+                                "name": "houseHoldName_houseThree",
+                                "type": "Text",
+                                "description": "اسم صاحب المنزل.",
+                                "label": {
+                                    "en": "Household Name",
+                                    "ar": "اسم صاحب المنزل"
+                                },
+                                "rules": [],
+                                "path": "householdData.houseThree.houseHoldName",
+                                "calculation": null,
+                                "order": 16,
+                                "defaultValue": null,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "appearance": null,
+                                "constraint": null,
+                                "constraintMessage": null,
+                                "mainField": false
+                            },
+                            {
+                                "name": "visitedHousesInfo_houseThree",
+                                "type": "Section",                               
+                                "label": {
+                                    "en": "Visit Data",
+                                    "ar": "البيانات بحسب الزيارة"
+                                },
+                                "rules": [],
+                                "path": "householdData.houseThree.visitData",
+                                "calculation": null,
+                                "order": 17,
+                                "defaultValue": null,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "appearance": null,
+                                "constraint": null,
+                                "constraintMessage": null,
+                                "mainField": false,
+                                "fields": [
+                                    {
+                                        "name": "population_actual_3",
+                                        "type": "IntegerPositive",
+                                        "description": "إجمالي عدد السكان في المنزل.",
+                                        "label": {
+                                            "en": "House Population",
+                                            "ar": "السكان"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseThree.visitData.population",
+                                        "calculation": null,
+                                        "order": 18,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    },
+                                    {
+                                        "name": "itns_actual_3",
+                                        "type": "IntegerPositive",
+                                        "description": "عدد الناموسيات المستلمة من قبل المنزل.",
+                                        "label": {
+                                            "en": "Nets Received",
+                                            "ar": "الناموسيات"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseThree.visitData.netsReceived",
+                                        "calculation": null,
+                                        "order": 19,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "dataByTeamRecord_houseThree",
+                                "type": "Section",
+                                "label": {
+                                    "en": "Data by team record",
+                                    "ar": "البيانات بحسب سجلات الفريق"
+                                },
+                                "rules": [],
+                                "path": "householdData.houseThree.dataByTeamRecord",
+                                "calculation": null,
+                                "order": 20,
+                                "defaultValue": null,
+                                "mandatory": true,
+                                "readOnly": false,
+                                "appearance": null,
+                                "constraint": null,
+                                "constraintMessage": null,
+                                "mainField": false,
+                                "fields": [
+                                    {
+                                        "name": "population_team_3",
+                                        "type": "IntegerPositive",
+                                        "description": "إجمالي عدد السكان في المنزل.",
+                                        "label": {
+                                            "en": "House Population",
+                                            "ar": "عدد السكان في المنزل"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseThree.dataByTeamRecord.population",
+                                        "calculation": null,
+                                        "order": 21,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    },
+                                    {
+                                        "name": "itns_team_3",
+                                        "type": "IntegerPositive",
+                                        "description": "عدد الناموسيات الموزعة للمنزل.",
+                                        "label": {
+                                            "en": "Nets Distributed",
+                                            "ar": "عدد الناموسيات المصروفة"
+                                        },
+                                        "rules": [],
+                                        "path": "householdData.houseThree.dataByTeamRecord.itns",
+                                        "calculation": null,
+                                        "order": 22,
+                                        "defaultValue": null,
+                                        "mandatory": true,
+                                        "readOnly": false,
+                                        "appearance": null,
+                                        "constraint": null,
+                                        "constraintMessage": null,
+                                        "mainField": true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "teamPerformance",
+                "type": "Section",
+                "description": "أداء الفريق أثناء المراجعة.",
+                "label": {
+                    "en": "Team Performance",
+                    "ar": "المشاهدات الميدانية"
+                },
+                "rules": [],
+                "path": "teamPerformance",
+                "calculation": null,
+                "order": 23,
+                "defaultValue": null,
+                "mandatory": true,
+                "readOnly": false,
+                "appearance": null,
+                "constraint": null,
+                "constraintMessage": null,
+                "mainField": false,
+                "fields": [
+                    {
+                        "name": "supervisorPresence",
+                        "type": "SelectOne",
+                        "description": "هل كان المشرف حاضراً أثناء الزيارة؟",
+                        "label": {
+                            "en": "Supervisor",
+                            "ar": "ملازمة قائد الفريق للمسجل"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.supervisorPresence",
+                        "calculation": null,
+                        "order": 24,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "distributorAwareness",
+                        "type": "SelectOne",
+                        "description": "هل كان الموزع يقدم التوعية أثناء الزيارة؟",
+                        "label": {
+                            "en": "Distributor Awareness",
+                            "ar": "الموزع يقوم بالتوعية"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.distributorAwareness",
+                        "calculation": null,
+                        "order": 25,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "distributorNetOpening",
+                        "type": "SelectOne",
+                        "description": "هل كان الموزع يفتح أغلفة الناموسية قبل التوزيع؟",
+                        "label": {
+                            "en": "Distributor Net Opening",
+                            "ar": "الموزع يقوم بقطع غلاف الناموسية قبل تسليمها"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.distributorNetOpening",
+                        "calculation": null,
+                        "order": 26,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "voucherUsage",
+                        "type": "SelectOne",
+                        "description": "هل تم استخدام القسيمة للتوزيع؟",
+                        "label": {
+                            "en": "Voucher Usage",
+                            "ar": "التزام الفريق باستخدام الكوبونات"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.voucherUsage",
+                        "calculation": null,
+                        "order": 27,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "householdNumberingCompliance",
+                        "type": "SelectOne",
+                        "description": "التزام الفريق بترقيم المنازل",
+                        "label": {
+                            "en": "Household Numbering Compliance",
+                            "ar": "التزام الفريق بترقيم المنازل"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.householdNumberingCompliance",
+                        "calculation": null,
+                        "order": 28,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "fingerprintCompliance",
+                        "type": "SelectOne",
+                        "description": "التزام الفريق بالبصمة للسكان",
+                        "label": {
+                            "en": "Fingerprint Compliance",
+                            "ar": "التزام الفريق بالبصمة للسكان"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.fingerprintCompliance",
+                        "calculation": null,
+                        "order": 29,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "distributionFromHouseToHouse",
+                        "type": "SelectOne",
+                        "description": "التزام الفريق بالتوزيع من منزل الى منزل",
+                        "label": {
+                            "en": "Distribution From House to House",
+                            "ar": "التزام الفريق بالتوزيع من منزل الى منزل"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.distributionFromHouseToHouse",
+                        "calculation": null,
+                        "order": 30,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "teamBehaviorWithPopulation",
+                        "type": "SelectOne",
+                        "description": "سلوك الفريق مع السكان جيد",
+                        "label": {
+                            "en": "Team Behavior with Population",
+                            "ar": "سلوك الفريق مع السكان جيد"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.teamBehaviorWithPopulation",
+                        "calculation": null,
+                        "order": 31,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "teamLeaderInteraction",
+                        "type": "SelectOne",
+                        "description": "تعامل قائد الفريق مع زملائه جيد",
+                        "label": {
+                            "en": "Team Leader Interaction",
+                            "ar": "تعامل قائد الفريق مع زملائه جيد"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.teamLeaderInteraction",
+                        "calculation": null,
+                        "order": 32,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    },
+                    {
+                        "name": "teamLeaderLeadership",
+                        "type": "SelectOne",
+                        "description": "هل شخصية قائد الفريق قيادية",
+                        "label": {
+                            "en": "Team Leader Leadership",
+                            "ar": "هل شخصية قائد الفريق قيادية"
+                        },
+                        "rules": [],
+                        "path": "teamPerformance.teamLeaderLeadership",
+                        "calculation": null,
+                        "order": 33,
+                        "defaultValue": null,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "appearance": null,
+                        "constraint": null,
+                        "constraintMessage": null,
+                        "mainField": false,
+                        "listName": "yesno",
+                        "choiceFilter": null
+                    }
+                ]
+            }
+        ],
+        "options": [
+            {
+                "listName": "workdays",
+                "name": "1",
+                "order": 1,
+                "label": {
+                    "en": "1",
+                    "ar": "1"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "2",
+                "order": 2,
+                "label": {
+                    "en": "2",
+                    "ar": "2"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "3",
+                "order": 3,
+                "label": {
+                    "en": "3",
+                    "ar": "3"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "4",
+                "order": 4,
+                "label": {
+                    "en": "4",
+                    "ar": "4"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "5",
+                "order": 5,
+                "label": {
+                    "en": "5",
+                    "ar": "5"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "6",
+                "order": 6,
+                "label": {
+                    "en": "6",
+                    "ar": "6"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "yesno",
+                "name": "yes",
+                "order": 0,
+                "label": {
+                    "en": "Yes",
+                    "ar": "نعم"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "yesno",
+                "name": "no",
+                "order": 1,
+                "label": {
+                    "en": "No",
+                    "ar": "لا"
+                },
+                "properties": {}
+            }
+        ],
+        "optionSets": [],
+        "orgUnits": [],
+        "label": {
+            "en": "Field Supervision Form",
+            "ar": "استمارة الاشراف الميداني - مشرف المخزن"
+        }
+    }

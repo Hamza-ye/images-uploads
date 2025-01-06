@@ -1,0 +1,308 @@
+ {
+    
+        "uid": "A3Ao5Dsxyac",
+        "code": "DTSITNsWarehouseMovementDec2024",
+        "name": "استمارة حركة الناموسيات-مشرف المخزن",
+        "deleted": false,
+        "version": 26,
+        "defaultLocal": "ar",
+        "fields": [
+            {
+                "name": "mainSection",
+                "type": "Section",
+                "label": {
+                    "en": "mainSection",
+                    "ar": "بيانات الاساسية"
+                },
+                "rules": [],
+                "path": "mainSection",
+                "order": 0,
+                "mandatory": true,
+                "readOnly": false,
+                "mainField": false,
+                "fields": [
+                    {
+                        "name": "workday",
+                        "type": "SelectOne",
+                        "label": {
+                            "en": "workday",
+                            "ar": "اليوم"
+                        },
+                        "rules": [],
+                        "path": "mainSection.workday",
+                        "order": 1,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true,
+                        "listName": "workdays"
+                    },
+                    {
+                        "name": "transactionDate",
+                        "type": "Date",
+                        "label": {
+                            "en": "transaction Date",
+                            "ar": "التاريخ"
+                        },
+                        "rules": [],
+                        "path": "mainSection.transactionDate",
+                        "order": 2,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true
+                    }
+                ]
+            },
+            {
+                "name": "dtsitnsledger",
+                "type": "RepeatableSection",
+                "label": {
+                    "en": "dtsitnsledger",
+                    "ar": "بيانات الحركة"
+                },
+                "rules": [],
+                "path": "dtsitnsledger",
+                "order": 3,
+                "mandatory": true,
+                "readOnly": false,
+                "mainField": false,
+                "fields": [
+                    {
+                        "name": "transaction",
+                        "type": "SelectOne",
+                        "defaultValue": "out",
+                        "label": {
+                            "en": "transaction",
+                            "ar": "نوع الحركة"
+                        },
+                        "rules": [],
+                        "path": "dtsitnsledger.transaction",
+                        "order": 4,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false,
+                        "listName": "transactions"
+                    },
+                    {
+                        "name": "from_to",
+                        "type": "SelectOne",
+                        "defaultValue": null,
+                        "rules": [
+                            {
+                                "expression": "#{transaction} == 'OUT' || #{transaction} == 'IN'",
+                                "action": "Show"
+                            }
+                        ],
+                        "label": {
+                            "en": "Source/Destination",
+                            "ar": "طرف الحركة"
+                        },                        
+                        "order": 5,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false,
+                        "listName": "from_to"
+                    },
+                    {
+                        "name": "team",
+                        "type": "Team",
+                        "label": {
+                            "en": "Team",
+                            "ar": "حدد الفريق"
+                        },
+                        "rules": [
+                            {
+                                "expression": "(#{transaction} == 'OUT' || #{transaction} == 'IN') && #{from_to} == 'team'",
+                                "action": "Show"
+                            }
+                        ],
+                        "order": 6,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false
+                    },
+                    {
+                        "name": "otherSideInfo",
+                        "type": "Text",
+                        "label": {
+                            "en": "fromToName",
+                            "ar": "معلومات الطرف  الآخر"
+                        },
+                        "rules": [
+                            {
+                                "expression": "(#{transaction} == 'OUT' || #{transaction} == 'IN') && #{from_to} == 'other'",
+                                "action": "Show"
+                            }
+                        ],
+                        "order": 7,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": false
+                    },                
+                    {
+                        "name": "itns",
+                        "type": "IntegerZeroOrPositive",
+                        "label": {
+                            "en": "Quantity",
+                            "ar": "الكمية بالحبة - ناموسية"
+                        },
+                        "rules": [],
+                        "order": 9,
+                        "mandatory": true,
+                        "readOnly": false,
+                        "mainField": true
+                    }                   
+                ],
+                "itemTitle": "حركة مخزون",
+                "maxRepeats": 0,
+                "minRepeats": 1
+            }
+        ],
+        "options": [
+            {
+                "listName": "from_to",
+                "name": "team",
+                "order": 0,
+                "label": {
+                    "en": "Team",
+                    "ar": "فريق"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "from_to",
+                "name": "other",
+                "order": 1,
+                "label": {
+                    "en": "Other side",
+                    "ar": "طرف آخر"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "transactions",
+                "name": "closingInventory",
+                "order": 4,
+                "label": {
+                    "en": "closingInventory",
+                    "ar": "جرد ختامي"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "transactions",
+                "name": "openingInventory",
+                "order": 3,
+                "label": {
+                    "en": "openingInventory",
+                    "ar": "جرد افتتاحي"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "transactions",
+                "name": "OUT",
+                "order": 1,
+                "label": {
+                    "en": "Out",
+                    "ar": "خارج"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "transactions",
+                "name": "IN",
+                "order": 2,
+                "label": {
+                    "en": "In",
+                    "ar": "داخل"
+                },
+                "properties": {}
+            },              
+            {
+                "listName": "uoms",
+                "name": "pale50itns",
+                "order": 1,
+                "label": {
+                    "en": "Pale 50 itns",
+                    "ar": "بندل"
+                },
+                "properties": {}
+            },        
+            {
+                "listName": "uoms",
+                "name": "itn",
+                "order": 2,
+                "label": {
+                    "en": "itn",
+                    "ar": "بالحبة-ناموسية"
+                },
+                "properties": {}
+            },            
+            {
+                "listName": "workdays",
+                "name": "1",
+                "order": 1,
+                "label": {
+                    "en": "1",
+                    "ar": "1"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "2",
+                "order": 2,
+                "label": {
+                    "en": "2",
+                    "ar": "2"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "3",
+                "order": 3,
+                "label": {
+                    "en": "3",
+                    "ar": "3"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "4",
+                "order": 4,
+                "label": {
+                    "en": "4",
+                    "ar": "4"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "5",
+                "order": 5,
+                "label": {
+                    "en": "5",
+                    "ar": "5"
+                },
+                "properties": {}
+            },
+            {
+                "listName": "workdays",
+                "name": "6",
+                "order": 6,
+                "label": {
+                    "en": "6",
+                    "ar": "6"
+                },
+                "properties": {}
+            }        
+        ],
+        "optionSets": [],
+        "orgUnits": [],
+        "label": {
+            "en": "ITNSDDec2024DTSWhMovv2",
+            "ar": "حركة الناموسيات-مشرف المخزن"
+        }
+    }

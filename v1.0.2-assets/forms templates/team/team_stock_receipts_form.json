@@ -1,0 +1,479 @@
+{
+    "uid": "oHpNiSgUOT4",
+    "code": "Daily_STOCK_MOVEMENT_TEAMs",
+    "name": "حركة الناموسيات - قائد الفرق",
+    "deleted": false,
+    "version": 25,
+    "defaultLocal": "ar",
+    "fields": [
+        {
+            "name": "mainSection",
+            "type": "Section",
+            "description": null,
+            "label": {
+                "en": "mainSection",
+                "ar": "بيانات أساسية"
+            },
+            "rules": [],
+            "path": "mainSection",
+            "calculation": null,
+            "order": 1,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "appearance": null,
+            "constraint": null,
+            "constraintMessage": null,
+            "mainField": false,
+            "fields": [
+                {
+                    "name": "workday",
+                    "type": "SelectOne",
+                    "description": null,
+                    "label": {
+                        "en": "workday",
+                        "ar": "اليوم"
+                    },
+                    "rules": [],
+                    "path": "mainSection.workday",
+                    "calculation": null,
+                    "order": 1,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": true,
+                    "listName": "workdays",
+                    "choiceFilter": null
+                }
+            ]
+        },
+        {
+            "name": "transactions",
+            "type": "RepeatableSection",
+            "description": null,
+            "label": {
+                "en": "transactions",
+                "ar": "قراءات الباركود"
+            },
+            "rules": [],
+            "path": "transactions",
+            "calculation": null,
+            "order": 2,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "mainField": false,
+            "fields": [
+                {
+                    "name": "uom",
+                    "type": "SelectOne",
+                    "description": null,
+                    "label": {
+                        "en": "uom",
+                        "ar": "الكمية"
+                    },
+                    "rules": [],
+                    "path": "transactions.uom",
+                    "calculation": null,
+                    "order": 2,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false,
+                    "listName": "uoms",
+                    "choiceFilter": null
+                },
+                {
+                    "name": "barcode",
+                    "type": "ScannedCode",
+                    "description": null,
+                    "label": {
+                        "en": "barcode",
+                        "ar": "الباركود"
+                    },
+                    "rules": [],
+                    "path": "transactions.barcode",
+                    "calculation": null,
+                    "order": 1,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false,
+                    "gs1Enabled": false,
+                    "properties": null
+                },
+                {
+                    "name": "transactiontype",
+                    "type": "SelectOne",
+                    "description": null,
+                    "label": {
+                        "en": "transactiontype",
+                        "ar": "نوع الحركة"
+                    },
+                    "rules": [],
+                    "path": "transactions.transactiontype",
+                    "calculation": null,
+                    "order": 3,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false,
+                    "listName": "transactions",
+                    "choiceFilter": null
+                }
+            ],
+            "itemTitle": null,
+            "maxRepeats": 0,
+            "minRepeats": 0
+        }
+    ],
+    "options": [
+        {
+            "listName": "transactions",
+            "name": "receive",
+            "order": 1,
+            "label": {
+                "en": "receive",
+                "ar": "استلام كمية من المخزن"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "transactions",
+            "name": "return",
+            "order": 2,
+            "label": {
+                "en": "return",
+                "ar": "مرتجع الى المخزن نهاية الحملة"
+            },
+            "properties": {
+                "age": 0,
+                "phone": "",
+                "code": ""
+            }
+        },
+        {
+            "listName": "uoms",
+            "name": "pale50itns",
+            "order": 1,
+            "label": {
+                "en": "Pale 50 itns",
+                "ar": "بندل 50 ناموسية"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "uoms",
+            "name": "itn",
+            "order": 2,
+            "label": {
+                "en": "itn",
+                "ar": "ناموسية"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workdays",
+            "name": "1",
+            "order": 1,
+            "label": {
+                "en": "1",
+                "ar": "1"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workdays",
+            "name": "2",
+            "order": 2,
+            "label": {
+                "en": "2",
+                "ar": "2"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workdays",
+            "name": "3",
+            "order": 3,
+            "label": {
+                "en": "3",
+                "ar": "3"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workdays",
+            "name": "4",
+            "order": 4,
+            "label": {
+                "en": "4",
+                "ar": "4"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workdays",
+            "name": "5",
+            "order": 5,
+            "label": {
+                "en": "5",
+                "ar": "5"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workdays",
+            "name": "6",
+            "order": 6,
+            "label": {
+                "en": "6",
+                "ar": "6"
+            },
+            "properties": {}
+        }
+    ],
+    "optionSets": [],
+    "orgUnits": [],
+    "label": {
+        "en": "ITNSDDec2024FTL",
+        "ar": "حركة المخزون اليومي - قائد الفريق"
+    },
+    "flattenedFields": [
+        {
+            "name": "mainSection",
+            "type": "Section",
+            "description": null,
+            "label": {
+                "en": "mainSection",
+                "ar": "بيانات أساسية"
+            },
+            "rules": [],
+            "path": "mainSection",
+            "calculation": null,
+            "order": 1,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "appearance": null,
+            "constraint": null,
+            "constraintMessage": null,
+            "mainField": true,
+            "fields": [
+                {
+                    "name": "workday",
+                    "type": "SelectOne",
+                    "description": null,
+                    "label": {
+                        "en": "workday",
+                        "ar": "اليوم"
+                    },
+                    "rules": [],
+                    "path": "mainSection.workday",
+                    "calculation": null,
+                    "order": 1,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": true,
+                    "listName": "workdays",
+                    "choiceFilter": null
+                }
+            ]
+        },
+        {
+            "name": "workday",
+            "type": "SelectOne",
+            "description": null,
+            "label": {
+                "en": "workday",
+                "ar": "اليوم"
+            },
+            "rules": [],
+            "path": "mainSection.workday",
+            "calculation": null,
+            "order": 1,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "appearance": null,
+            "constraint": null,
+            "constraintMessage": null,
+            "mainField": true,
+            "listName": "workdays",
+            "choiceFilter": null
+        },
+        {
+            "name": "transactions",
+            "type": "RepeatableSection",
+            "description": null,
+            "label": {
+                "en": "transactions",
+                "ar": "قراءات الباركود"
+            },
+            "rules": [],
+            "path": "transactions",
+            "calculation": null,
+            "order": 2,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "appearance": null,
+            "constraint": null,
+            "constraintMessage": null,
+            "mainField": false,
+            "fields": [
+                {
+                    "name": "uom",
+                    "type": "SelectOne",
+                    "description": null,
+                    "label": {
+                        "en": "uom",
+                        "ar": "الكمية"
+                    },
+                    "rules": [],
+                    "path": "transactions.uom",
+                    "calculation": null,
+                    "order": 2,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": true,
+                    "listName": "uoms",
+                    "choiceFilter": null
+                },
+                {
+                    "name": "barcode",
+                    "type": "ScannedCode",
+                    "description": null,
+                    "label": {
+                        "en": "barcode",
+                        "ar": "الباركود"
+                    },
+                    "rules": [],
+                    "path": "transactions.barcode",
+                    "calculation": null,
+                    "order": 1,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false,
+                    "gs1Enabled": false,
+                    "properties": null
+                },
+                {
+                    "name": "transactiontype",
+                    "type": "SelectOne",
+                    "description": null,
+                    "label": {
+                        "en": "transactiontype",
+                        "ar": "نوع الحركة"
+                    },
+                    "rules": [],
+                    "path": "transactions.transactiontype",
+                    "calculation": null,
+                    "order": 3,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false,
+                    "listName": "transactions",
+                    "choiceFilter": null
+                }
+            ],
+            "itemTitle": null,
+            "maxRepeats": 0,
+            "minRepeats": 0
+        },
+        {
+            "name": "uom",
+            "type": "SelectOne",
+            "description": null,
+            "label": {
+                "en": "uom",
+                "ar": "الكمية"
+            },
+            "rules": [],
+            "path": "transactions.uom",
+            "calculation": null,
+            "order": 2,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "appearance": null,
+            "constraint": null,
+            "constraintMessage": null,
+            "mainField": true,
+            "listName": "uoms",
+            "choiceFilter": null
+        },
+        {
+            "name": "barcode",
+            "type": "ScannedCode",
+            "description": null,
+            "label": {
+                "en": "barcode",
+                "ar": "الباركود"
+            },
+            "rules": [],
+            "path": "transactions.barcode",
+            "calculation": null,
+            "order": 1,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "appearance": null,
+            "constraint": null,
+            "constraintMessage": null,
+            "mainField": false,
+            "gs1Enabled": false,
+            "properties": null
+        },
+        {
+            "name": "transactiontype",
+            "type": "SelectOne",
+            "description": null,
+            "label": {
+                "en": "transactiontype",
+                "ar": "نوع الحركة"
+            },
+            "rules": [],
+            "path": "transactions.transactiontype",
+            "calculation": null,
+            "order": 3,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "appearance": null,
+            "constraint": null,
+            "constraintMessage": null,
+            "mainField": false,
+            "listName": "transactions",
+            "choiceFilter": null
+        }
+    ]
+}

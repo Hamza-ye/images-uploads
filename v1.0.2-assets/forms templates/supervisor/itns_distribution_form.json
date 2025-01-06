@@ -1,0 +1,487 @@
+{
+    "uid": "Tfc3K9sZRpB",
+    "code": "LLINs_Distribution_form_at_Households_level",
+    "name": "اﻟﻤﺘﺎﺑﻌﺔ اﻟﻔﻨﯿﺔ ﻻﻧﺠﺎز اﻟﻔﺮق الميدانية، مشرف المخزن",
+    "description": "Form for tracking daily work activities during LLIN distribution campaigns.",
+    "disabled": false,
+    "deleted": false,
+    "version": 10,
+    "defaultLocal": "ar",
+    "fields": [
+        {
+            "name": "mainDetails",
+            "type": "Section",
+            "description": "Basic details of the day and warehouse.",
+            "label": {
+                "en": "Main Details",
+                "ar": "التفاصيل الرئيسية"
+            },
+            "rules": [],
+            "path": "mainDetails",
+            "calculation": null,
+            "order": 0,
+            "defaultValue": null,
+            "mandatory": true,
+            "readOnly": false,
+            "appearance": null,
+            "constraint": null,
+            "constraintMessage": null,
+            "mainField": false,
+            "fields": [
+                {
+                    "name": "workDays",
+                    "type": "SelectOne",
+                    "description": "Day of work for the campaign.",
+                    "label": {
+                        "en": "Work Day",
+                        "ar": "يوم العمل"
+                    },
+                    "rules": [],
+                    "path": "mainDetails.workDays",
+                    "calculation": null,
+                    "order": 1,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": true,
+                    "listName": "workDays",
+                    "choiceFilter": null
+                }
+            ]
+        },
+        {
+            "name": "teamDistributionDetails",
+            "type": "Section",
+            "description": "Details of team activities and distribution.",
+            "label": {
+                "en": "Team Distribution Details",
+                "ar": "تفاصيل توزيع الفرق"
+            },
+            "rules": [],
+            "path": "teamDistributionDetails",
+            "order": 2,
+            "mandatory": true,
+            "readOnly": false,
+            "mainField": false,
+            "fields": [
+                {
+                    "name": "team",
+                    "type": "Team",
+                    "description": "The number of the team conducting the activity.",
+                    "label": {
+                        "en": "Team Number",
+                        "ar": "الفريق"
+                    },
+                    "rules": [],
+                    "path": "teamDistributionDetails.teamNumber",
+                    "order": 3,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "mainField": true
+                },            
+                {
+                    "name": "arrived",
+                    "type": "SelectOne",
+                    "description": "Whether the locality was fully completed.",
+                    "label": {
+                        "en": "arrived Completed",
+                        "ar": "الوصول للمحلة"
+                    },
+                    "rules": [],
+                    "path": "teamDistributionDetails.arrived",
+                    "calculation": null,
+                    "order": 4,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false,
+                    "listName": "yesno",
+                    "choiceFilter": null
+                },
+                {
+                    "name": "status",
+                    "type": "Progress",
+                    "label": {
+                        "en": "Status",
+                        "ar": "الحالة"
+                    },
+                    "rules": [
+                        {
+                            "expression": "#{arrived} == 'yes'",
+                            "action": "Show",
+                            "message": null,
+                            "assignedValue": null
+                        }
+                    ],
+                    "path": "teamDistributionDetails.completionStatus",
+                    "calculation": null,
+                    "order": 5,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false,
+                    "listName": "status",
+                    "choiceFilter": null
+                },
+                {
+                    "name": "completionDay",
+                    "type": "SelectOne",
+                    "label": {
+                        "en": "Completion Day",
+                        "ar": "يوم الاكتمال"
+                    },
+                    "rules": [
+                        {
+                            "expression": "#{status} == 'DONE'",
+                            "action": "Show"
+                        }
+                    ],
+                    "calculation": null,
+                    "order": 6,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": true,
+                    "listName": "workDays",
+                    "choiceFilter": null
+                },
+                {
+                    "name": "completionStatus",
+                    "type": "SelectOne",
+                    "description": "Locality Completed",
+                    "label": {
+                        "en": "Locality Completed",
+                        "ar": "حالة الاكتمال"
+                    },
+                    "rules": [
+                        {
+                            "expression": "#{status} == 'DONE'",
+                            "action": "Show"
+                        }
+                    ],
+                    "path": "teamDistributionDetails.completionStatus",
+                    "order": 7,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "mainField": false,
+                    "listName": "completionStatus"
+                },
+                {
+                    "name": "completionPercentage",
+                    "type": "IntegerZeroOrPositive",
+                    "label": {
+                        "en": "Population",
+                        "ar": "% نسبة الاكتمال"
+                    },
+                    "rules": [
+                        {
+                            "expression": "#{completionStatus} == 'PARTIAL'",
+                            "action": "Show"
+                        },
+                        {
+                            "expression": "#{completionPercentage} > 100",
+                            "action": "Error",
+                            "message": {
+                                "en": "Completion percentage must be between 0 and 100",
+                                "ar": "يجب أن يكون نسبة الاكتمال بين 0 و 100"
+                            }
+                        }
+                    ],
+                    "path": "teamDistributionDetails.population",
+                    "order": 8,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "mainField": true
+                },                
+                {
+                    "name": "approvalStatus",
+                    "type": "SelectOne",
+                    "description": "Whether the data was approved.",
+                    "label": {
+                        "en": "Approval Status",
+                        "ar": "اعتماد بيانات الفريق"
+                    },
+                    "rules": [],
+                    "path": "teamDistributionDetails.approvalStatus",
+                    "calculation": null,
+                    "order": 9,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false,
+                    "listName": "yesno",
+                    "choiceFilter": null
+                },
+
+                {
+                    "name": "population",
+                    "type": "IntegerZeroOrPositive",
+                    "description": "Total population served.",
+                    "label": {
+                        "en": "Population",
+                        "ar": "السكان"
+                    },
+                    "rules": [
+                        {
+                            "expression": "#{arrived} == 'yes'",
+                            "action": "Show"
+                        }
+                    ],
+                    "path": "teamDistributionDetails.population",
+                    "order": 10,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "mainField": true
+                },
+                {
+                    "name": "itns",
+                    "type": "IntegerZeroOrPositive",
+                    "description": "Number of nets distributed.",
+                    "label": {
+                        "en": "ITNs",
+                        "ar": "الناموسيات"
+                    },
+                    "rules": [
+                        {
+                            "expression": "#{arrived} == 'yes'",
+                            "action": "Show"
+                        }
+                    ],
+                    "path": "teamDistributionDetails.itns",
+                    "calculation": null,
+                    "order": 11,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": true
+                },
+                {
+                    "name": "households",
+                    "type": "IntegerZeroOrPositive",
+                    "description": "Number of households served.",
+                    "label": {
+                        "en": "Households",
+                        "ar": "المنازل"
+                    },
+                    "rules": [
+                        {
+                            "expression": "#{arrived} == 'yes'",
+                            "action": "Show",
+                            "message": null,
+                            "assignedValue": null
+                        }
+                    ],
+                    "path": "teamDistributionDetails.households",
+                    "calculation": null,
+                    "order": 12,
+                    "defaultValue": null,
+                    "mandatory": true,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": true
+                },
+                {
+                    "name": "notes",
+                    "type": "Text",
+                    "description": "Additional notes or observations.",
+                    "label": {
+                        "en": "Notes",
+                        "ar": "ملاحظات"
+                    },
+                    "rules": [],
+                    "path": "teamDistributionDetails.notes",
+                    "calculation": null,
+                    "order": 13,
+                    "defaultValue": null,
+                    "mandatory": false,
+                    "readOnly": false,
+                    "appearance": null,
+                    "constraint": null,
+                    "constraintMessage": null,
+                    "mainField": false
+                }
+            ],
+            "itemTitle": null,
+            "maxRepeats": 0,
+            "minRepeats": 0
+        }
+    ],
+    "options": [
+        {
+            "listName": "status",
+            "name": "IN_PROGRESS",
+            "order": 0,
+            "label": {
+                "en": "IN Progress",
+                "ar": "قيد التنفيذ"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "status",
+            "name": "DONE",
+            "order": 1,
+            "label": {
+                "en": "Done",
+                "ar": "اكتمل"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "status",
+            "name": "CANCELLED",
+            "order": 1,
+            "label": {
+                "en": "Cancelled",
+                "ar": "ملغي"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "status",
+            "name": "REASSIGNED",
+            "order": 1,
+            "label": {
+                "en": "Reassigned",
+                "ar": "ملغي"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "status",
+            "name": "MERGED",
+            "order": 1,
+            "label": {
+                "en": "Merged",
+                "ar": "مدمج"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "completionStatus",
+            "name": "FULL",
+            "order": 0,
+            "label": {
+                "en": "Full",
+                "ar": "كلي"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "completionStatus",
+            "name": "PARTIAL",
+            "order": 1,
+            "label": {
+                "en": "Partial",
+                "ar": "جزئي"
+            },
+            "properties": {}
+        },       
+        {
+            "listName": "workDays",
+            "name": "1",
+            "order": 0,
+            "label": {
+                "en": "Day 1",
+                "ar": "الأول"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workDays",
+            "name": "2",
+            "order": 1,
+            "label": {
+                "en": "Day 2",
+                "ar": "الثاني"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workDays",
+            "name": "3",
+            "order": 2,
+            "label": {
+                "en": "Day 3",
+                "ar": "الثالث"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workDays",
+            "name": "4",
+            "order": 3,
+            "label": {
+                "en": "Day 4",
+                "ar": "الرابع"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workDays",
+            "name": "5",
+            "order": 4,
+            "label": {
+                "en": "Day 5",
+                "ar": "الخامس"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "workDays",
+            "name": "6",
+            "order": 5,
+            "label": {
+                "en": "Day 6",
+                "ar": "السادس"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "yesno",
+            "name": "yes",
+            "order": 0,
+            "label": {
+                "en": "Yes",
+                "ar": "نعم"
+            },
+            "properties": {}
+        },
+        {
+            "listName": "yesno",
+            "name": "no",
+            "order": 1,
+            "label": {
+                "en": "No",
+                "ar": "لا"
+            },
+            "properties": {}
+        }
+    ],
+    "optionSets": [],
+    "orgUnits": [],
+    "label": {
+        "en": "LLINs Distribution form at Households level",
+        "ar": "اﺳﺘﻤﺎرة ﻣﺸﺮف اﻟﻤﺨﺰن -اﻟﻤﺘﺎﺑﻌﺔ اﻟﻔﻨﯿﺔ ﻻﻧﺠﺎز اﻟﻔﺮق اﻟﻤﯿﺪاﻧﯿﺔ"
+    }
+}
